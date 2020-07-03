@@ -1,6 +1,6 @@
 {
-  "name": "Ionic",
-  "short_name": "Ionic",
+  "name": "Quiz Academico",
+  "short_name": "Quiz Academico",
   "start_url": "index.html",
   "display": "standalone",
   "icons": [{

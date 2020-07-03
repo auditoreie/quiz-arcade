@@ -1,0 +1,58 @@
+page-disciplinas {
+    ion-content{
+        // background-color: color($colors, azul) !important;
+        background-image:url("/assets/imgs/bg1.jpg");
+        background-size: cover;
+    }
+    .toast-message{
+        white-space: pre !important;    
+    }
+    .qtd{
+        border-radius: 20px;
+        background-color: #f1f1f1;
+        padding: 10px;
+        position: absolute;
+        right: 5px;
+        color: #222222;
+    }
+    .conteiner-divs-input{
+        margin: auto;
+        width: 100%;
+        border: 1px solid green;
+        overflow: hidden;
+    }
+    ion-item{
+        margin-right: 5px !important;
+            // padding: 10px;
+        // border: 1px solid red;
+        border-radius: 7px;            
+        ion-select{
+            // border: 1px solid red;
+            
+        }
+    }
+    .align-direita{
+        // float: left;
+        max-width: 100% !important;
+        width: 100% !important;
+        ion-select{
+            width: 100% !important;
+        }                      
+    }
+    .text-pergunta{
+        font-size: 20px;
+        text-align: center;
+        color: #fafafa;
+    }
+    .grid-buttons{
+        border: 0px solid red;
+        // margin-top: 100px !important;
+    }
+    .button-disciplina{
+        padding: 10px !important;
+        background-color: #B80C00 !important;
+        margin-bottom: 10px !important;
+        border-radius: 20px 5px !important;  
+        margin-bottom: 15px !important;
+    }
+}

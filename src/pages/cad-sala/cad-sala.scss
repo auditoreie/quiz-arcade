@@ -1,0 +1,65 @@
+page-cad-sala {
+    ion-content{
+        // background-color: color($colors, azul) !important;
+        background-image:url("/assets/imgs/bg1.jpg");
+        background-size: cover;
+    }
+    // ion-select{
+    //     border-radius: 7px;
+    // }
+    // ion-option{
+    //     border-radius: 7px;
+    // }
+    .error{
+        color: brown;
+        font-weight: 900;
+    }
+    .div-input{
+        width: 100%;
+        // border: 1px solid red;
+        ion-input{
+            border: 1px solid #dadada;
+            // margin-right: -15px !important;
+            background-color: #f2f2f2;
+            border-radius: 7px;
+        } 
+        ion-option{
+            border: 1px solid #dadada;
+            text-align: right;
+            border-radius: 7px;
+        }
+            
+    }
+    .btnEnviar{
+        margin-top: 15px;
+    }
+    .align-direita-item{
+        border-radius: 7px !important;
+        border: 0px solid red !important;
+    }
+    .align-direita{
+        // border: 1px solid #dadada;
+        max-width: 100% !important;
+        width: 100% !important;
+        border-radius: 7px !important;
+        border: 0px solid red !important;
+        ion-option{
+            // border: 1px solid red !important;
+            border-radius: 7px !important;
+        }
+        ion-select{
+            width: 100% !important;
+            border-radius: 7px !important;
+            // border: 1px solid red !important;
+        }
+        // float: none;               
+    }
+    .text-permuta{
+        text-align: left;
+        font-size: 20px;
+        // background-color: #f2f2f2;
+        color: #f2f2f2;
+        padding: 0px;
+        width: 100%;
+    } 
+}

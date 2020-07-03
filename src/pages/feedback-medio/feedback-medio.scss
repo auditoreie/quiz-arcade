@@ -1,0 +1,57 @@
+page-feedback-medio{
+    ion-content{
+        // background-color: color($colors, azul) !important;
+        background-image:url("/assets/imgs/bg1.jpg");
+        background-size: cover;
+    }
+    .feedback{
+        color: #fafafa;
+        text-align: center;
+    }
+
+    .center{
+        text-align: center;
+    }
+    .img-resposta{
+        // height: 150px;
+        // width: 150px;
+        width: 200px;
+        height: 145px;
+        border: 0px solid red;
+        // -webkit-border-radius: 50%;
+        border-radius: 10%;
+        box-shadow: 5px 5px 5px rgba(0,0,0,0.5);
+        
+    }
+    .respostaCorreta{
+        background-color: #fafafa;
+        padding: 10px;
+        color: red;
+        border-radius: 7px !important;
+
+    }
+    .video-explicacao{
+        border: 0px solid red;
+        // height: 100px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        padding: 15px;
+        background-color: #fafafa;
+        overflow: hidden;
+        border-radius: 7px !important;
+    }
+    .video{
+        float: left;
+        width: 49%;
+        font-size: 50px;
+    }
+    .explic{
+        float: right;
+        width: 49%;
+        font-size: 50px;
+    }
+    .icon-next{
+        position: absolute;
+        right: 15px;
+    }
+}

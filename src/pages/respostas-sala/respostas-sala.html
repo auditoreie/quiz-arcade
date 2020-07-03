@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-navbar color="navbarColor">
+    <ion-title>Respostas da Sala {{sala?.id_sala}}</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="closeModal()">
+          <ion-icon item-right name="ios-close-outline"></ion-icon>
+      </button>
+  </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list>          
+    <ion-item-sliding *ngFor="let result of results; let i = index"> 
+      <ion-item text-wrap>            
+        <span class="letras-alternativas">{{i+1}}</span>
+        <div class="div-alternativas">
+          <div><b>Nome Aluno: </b>{{result!.nome_aluno}}</div>
+          <b>Nota: </b>{{result!.nota}}<br/>            
+          <b>Data: </b>{{result!.data_resposta | date: "dd/MM/yyyy"}}
+        </div>
+      </ion-item>
+      <ion-item-options side="right">
+        <button (click)="verRespostas(result)" ion-button color="secondary">
+          <ion-icon name="eye"></ion-icon>
+          <span>Visualizar</span>
+        </button>      
+      </ion-item-options>          
+    </ion-item-sliding>        
+  </ion-list>  
+</ion-content>

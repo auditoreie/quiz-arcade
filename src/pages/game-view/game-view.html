@@ -1,0 +1,50 @@
+<ion-header>
+  <ion-navbar  color="navbarColor">
+    <ion-title>Questão {{quizIndex+1}} de {{totalQuizNum}}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="home">
+  <div *ngIf="quizzes; else semQuiz">
+    <div class="div-topo">
+      <!-- <ion-col class="ion-coluna" width-50 offset-25> -->
+        <div *ngIf="disciplina" class="category">
+          <b>Categoria: </b><i>{{disciplina.nome}}</i> <b>Dificuldade: </b><i>{{dificuldade}}</i>
+        </div>            
+        <div class="question" [innerHTML]="currentQuiz?.question"></div>        
+        <span class="codigo"><b>Código:</b> {{currentQuiz?.id}}</span>
+        <span class="postado"><b>Postado por:</b> {{currentQuiz?.inserido_por}}</span>                                
+      <!-- </ion-col> -->
+      <!-- {{currentQuiz.type}} -->
+    </div>
+    <div class="navegacao">{{quizIndex+1}}/{{totalQuizNum}}</div>
+    <div padding *ngIf="nomeAlunoST != null" class="nomeAluno">Aluno: {{nomeAlunoST}}</div>
+    <div padding *ngIf="currentQuiz.periodo != ''" class="periodo">Periodo: {{currentQuiz.periodo}}º</div>
+
+    <div class="div-alternativas">
+        <ion-list no-lines>
+            <ion-item text-wrap>              
+              <div class="answers" *ngFor="let answer of answers; let i = index" (click)="handleAnswer(answer, disciplina)">                  
+                  <div *ngIf="answer.length > 0">
+                    <ng-template [ngIf]="i == 0"><div class="letras">A</div></ng-template>
+                    <ng-template [ngIf]="i == 1"><div class="letras">B</div></ng-template>
+                    <div *ngIf="!questionCE">
+                      <ng-template [ngIf]="i == 2"><div class="letras">C</div></ng-template>
+                      <ng-template [ngIf]="i == 3"><div class="letras">D</div></ng-template>
+                      <ng-template [ngIf]="i == 4"><div class="letras">E</div></ng-template>
+                    </div>
+                    <div class="answer">                    
+                      {{answer}}
+                    </div>
+                  </div>
+              </div>            
+            </ion-item>
+          </ion-list>
+    </div>
+  </div>
+  <ng-template #semQuiz>
+      <h3>Sem perguntas cadastradas!</h3>
+      <h3>Entre em contato para cadastrar perguntas!</h3>
+      <p>rodrigo4ever@gmail.com</p>
+  </ng-template>
+</ion-content>

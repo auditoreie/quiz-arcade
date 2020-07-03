@@ -1,0 +1,136 @@
+page-game-view{    
+    ion-coluna{
+        background-color: red !important;
+        border: 1px solid red !important;
+    }
+    ion-row{
+        border: 0px solid red;
+        margin-top: -20px;
+    }
+    .div-topo{
+        border: 1px solid color($colors, vermelho);
+        // background-color: @colors(rubi);
+        background-color: color($colors, vermelho);
+        padding: 20px;
+        color: #dadada;
+        padding-bottom: 30px;
+        // border: 1px solid green;
+        padding-top: 0px;
+    }
+    .home{
+        background-color: color($colors, azul) !important;
+    }
+    .div-alternativas{
+        margin-top: 20px;
+        background-color: color($colors, azul) !important;
+        ion-list{
+            background-color: color($colors, azul) !important;
+        }
+        ion-item{
+            background-color: color($colors, azul) !important;
+        }
+
+    }
+    .answers{
+        background-color: #f2f2f2;      
+        // padding: 20px;
+        margin-bottom: 10px !important;                
+        color: #222222;
+        border-radius: 5px;
+        border: 0px solid red !important; 
+        // float: left;       
+        width: 100%;
+        min-height: 50px;      
+    }
+    .letras{
+        position: absolute;
+        background-color: #d2d2d2;
+        // position: absolute;
+        border-radius: 20%;
+        float: left;
+        width: auto;
+        // left: -20px;
+        // top: 0%;
+        // margin-top: 10%;
+        // height: 100% !important; 
+        padding: 5px;
+        margin-right: 11px;
+        margin-top: 10px;
+        margin-left: 5px;
+        font-weight: bold;
+        // margin-right: 50px; 
+        // float: left;
+        // border: 1px solid red;
+        
+    }    
+    .answer{
+        padding: 10px;
+        margin-left: 25px;
+        // div{
+        //     float: left;
+        //     width: 20%;            
+        //     border: 1px solid green;
+        //     padding: 20px;
+            
+        // }
+    }
+    .navegacao{
+        margin: auto;
+        width: 60px;
+        height: 60px;
+        // border: 1px solid green;
+        text-align: center;
+        // padding: 10px;
+        background-color: #fafafa;
+        padding-top: 17px;
+        border-radius: 45px;
+        margin-top: -30px;
+        font-size: 20px;
+    }
+    .category{
+        // border: 1px solid green;
+        padding-top: 5px;
+        margin-bottom: 0px;
+    }
+    .codigo{
+        border: 0px solid red;
+        margin-top: -0px;
+        position: absolute;
+        left: 17px;
+        font-size: 12px;
+        color: #f2f2f2;
+    }
+    .postado{
+        float: right;
+    }
+    .question{
+        // border: 1px solid blue;
+        font-size:20px;
+        text-align: justify;
+        padding: 10px;
+        // background-color: #366496;
+        // color: #f2f2f2;
+        // padding: 10px;
+        // margin-bottom: 10px;
+        // border-radius: 5px;
+    }    
+    ion-item{
+        height: 100%;
+        margin-bottom: -10px !important;
+    }
+    .nomeAluno{
+        // margin-left: 00px;
+        // border: 1px solid red;
+        width: 50%;
+        float: left;
+        text-align: right;
+        background-color: #fafafa;
+    }
+    .periodo{
+        // border: 1px solid red;
+        width: 50%;
+        float: left;
+        text-align: left;
+        background-color: #fafafa;
+    }
+}

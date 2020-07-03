@@ -1,0 +1,89 @@
+<!-- <ion-header>
+  <ion-navbar color="navbarColor">
+    <ion-title>Entrar na Sala</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="closeModal()">
+          <ion-icon item-right name="ios-close-outline"></ion-icon>
+      </button>
+  </ion-buttons>
+  </ion-navbar>
+</ion-header> -->
+
+<ion-content  class="main-view">
+  <div class="overlay"></div>  
+  <div class="modal_content">    
+    <div class="topopag">
+      <!-- <ion-buttons  end> -->
+        <div class="buttonsClose" (click)="closeModal()" >
+            <ion-icon item-right name="ios-close-outline"></ion-icon>
+        </div>
+      <!-- </ion-buttons> -->
+      <div class="tituloSala">
+        Entrar em uma Sala
+      </div>
+    </div>  
+    <ion-list class="form-login">
+      <ion-spinner *ngIf="spinnerON" class="spinnerHome" name="bubbles"></ion-spinner>
+      <div class="div-input">
+        <ion-label class="text-permuta" position="floating">Nome Sala</ion-label>
+        <div *ngIf="!econtreiSala">
+           <ion-input [(ngModel)]="nomeSala" type="text"></ion-input>
+        </div>
+        <div *ngIf="econtreiSala">
+          <ion-input type="text" readonly value={{nomeSala}}></ion-input>
+       </div>
+        <!-- <div *ngIf="erroNomeSala" class="error"> {{msgNomeSala}}</div> -->
+      </div>   
+      <!-- <div *ngIf="salaAval" class="div-input">
+        <div class="info-sala-aval">Esta sala é avaliativa, por favor digite seu nome:</div>
+        <!-- <ion-label class="text-permuta" position="floating">Nome do Aluno</ion-label> -->
+        <!-- <ion-input [(ngModel)]="nomeAluno" type="text"></ion-input> -->
+        <!-- <div *ngIf="erroNomeSala" class="error"> {{msgNomeSala}}</div> -->
+      <!-- </div> -->
+    </ion-list>
+    <div class="erros">
+      <div *ngIf="erroEntrarSala" >
+          {{msgErroSala}}
+      </div>
+      <!-- <div *ngIf="temErroNomeSala">
+        {{erroNomeSala}}
+      </div>
+      <div *ngIf="erroSalaNaoEncontrada">
+        {{msgSalaNaoEncontrada}}
+      </div> -->
+    </div>
+    <div *ngIf="econtreiSala" class="infoSala">
+      <ion-avatar class="avatar">
+        <img [src]="displayImage">      
+      </ion-avatar>  
+      <div class="infos-login"> 
+        <div><b>Professor: </b>{{sala?.professor_nome}} {{sala?.sobrenome}}</div>
+        <div>{{sala?.cargo_funcao}}</div>               
+        <!-- <div class="logout" (click)="logout()">Sair</div> -->
+        <div class="caixa-info-sala">
+            <div><b>Nome Sala: </b>{{sala?.nome}}</div>       
+            <div><b>Turma: </b>{{sala?.turma}}</div> 
+            <div><b>Disciplina: </b>{{sala?.disciplina}}</div>
+            <div><b>ID Sala: </b>{{sala?.id_sala}}</div>
+            <div *ngIf="sala.avaliativa == 1; else naoAvaliativa">
+              <b>As Questões valem: {{sala?.nota}}</b>
+            </div>
+            <ng-template #naoAvaliativa>
+              <div><b>As Questões dessa sala não são avaliativas</b></div>
+            </ng-template>
+        </div>        
+      </div>
+      <ion-spinner *ngIf="spinnerBuscandoQuizz" class="spinnerBuscandoQuizz" name="crescent"></ion-spinner>  
+    </div>
+    <div class="div-buttoes">
+      <div *ngIf="!econtreiSala; else ">
+        <button class="button-entrar" ion-button full (click)="buscarSala()"><span>Buscar Sala</span></button>      
+      </div>
+      <div *ngIf="econtreiSala">
+        <div *ngIf="sala.avaliativa == 1; else elseAval" ><button class="button-entrar" ion-button full (click)="entrarSala()"><span>Entrar Sala Avaliativa?</span></button></div>
+        <ng-template #elseAval><div><button class="button-entrar" ion-button full (click)="entrarSala()"><span>Entrar Sala?</span></button></div></ng-template>
+      </div>       
+    </div> 
+  </div>  
+</ion-content>
+

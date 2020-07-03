@@ -1,0 +1,41 @@
+page-questoes {
+    ion-content{
+        // background-color: #3f82db !important;
+        background-image:url("/assets/imgs/bg1.jpg");
+        background-size: cover;
+    }
+    ion-list{
+        // border: 1px solid red;
+        border-radius: 3% !important;
+        overflow: hidden;
+    }
+    .listasSalas{
+        padding: 5px;
+        border: 0px solid #d2d2d2;
+        margin-top: 20px;        
+    }
+    .semsala{
+        padding: 20px;
+        // border: 1px solid #d2d2d2;
+        // margin-top: 20px;
+        background-color: #FFFFFF;
+        border-radius: 3% !important;
+        // overflow: hidden;
+    }
+    .infoQntd{
+        text-align: center;
+        font-size: 14px;
+        color: #FFFFFF;
+        margin-bottom: 5px;
+    }
+    .spinnerSalas{
+        // position: absolute;
+        // margin-top: 30px;
+        display: block;
+        // left: 45%;
+        // right: 45%;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+    }
+}

@@ -1,0 +1,120 @@
+<ion-header>
+  <ion-navbar color="navbarColor">
+    <ion-title>Nível Médio</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-toolbar no-border-top>
+      <ion-segment class="segment-home" [(ngModel)]="ciencias" (ionChange)="onSegmentChanged($event)">
+        <ion-segment-button value="sociais">
+          Sociais
+        </ion-segment-button>
+        <ion-segment-button value="humanas">
+          Humanas
+        </ion-segment-button>
+        <ion-segment-button value="exatas">
+          Exatas
+        </ion-segment-button>
+        <ion-segment-button value="biologicas">
+          Biologicas
+        </ion-segment-button>
+      </ion-segment>
+    </ion-toolbar>  
+
+    <ion-grid>
+      <ion-row>
+          <ion-col col-4> 
+              <ion-label class="text-pergunta" position="floating">Quantidade</ion-label>        
+              <ion-item>            
+                  <ion-select 
+                      okText="Ok" 
+                      cancelText="Cancela"  
+                      name="quantidadeQuiz" 
+                      class="align-direita"                  
+                      [(ngModel)]="quantidadeQuiz"
+                      interface="action-sheet">
+                      <ion-option value="10">10</ion-option>
+                      <ion-option value="15">15</ion-option>
+                      <ion-option value="20">20</ion-option>
+                      <ion-option value="25">25</ion-option>
+                      <ion-option value="30">30</ion-option>
+                      <ion-option value="35">35</ion-option>
+                      <ion-option value="40">40</ion-option>
+                      <ion-option value="45">45</ion-option>
+                      <ion-option value="50">50</ion-option>
+                  </ion-select>                    
+              </ion-item>  
+              <!-- {{quantidade}}       -->
+          </ion-col>  
+          <ion-col col-4> 
+              <ion-label class="text-pergunta" position="floating">Dificuldade</ion-label>        
+              <ion-item>            
+                  <ion-select 
+                      okText="Ok" 
+                      cancelText="Cancela"  
+                      name="dificuldadeQuiz" 
+                      class="align-direita"                  
+                      [(ngModel)]="dificuldadeQuiz"
+                      interface="action-sheet">
+                      <ion-option value="0">Todas</ion-option>
+                      <ion-option value="1">Fácil</ion-option>
+                      <ion-option value="2">Intermediário</ion-option>
+                      <ion-option value="3">Dificil</ion-option>
+                  </ion-select>                    
+              </ion-item>
+              <!-- <div *ngIf="erroCiencia" class="error"> {{msgCiencia}}</div> -->
+          </ion-col>
+          <!-- {{dificuldade}} -->
+          <ion-col col-4> 
+              <ion-label class="text-pergunta" position="floating">Período</ion-label>        
+              <ion-item>            
+                  <ion-select 
+                      okText="Ok" 
+                      cancelText="Cancela"  
+                      name="periodo" 
+                      class="align-direita"                  
+                      [(ngModel)]="periodo"
+                      interface="action-sheet">
+                      <ion-option value="0">Todos</ion-option>
+                      <ion-option value="1">1º</ion-option>
+                      <ion-option value="2">2º</ion-option>
+                      <ion-option value="3">3º</ion-option>
+                      <ion-option value="5">4º</ion-option>
+                      <ion-option value="5">5º</ion-option>
+                      <ion-option value="6">6º</ion-option>
+                      <ion-option value="7">7º</ion-option>
+                      <ion-option value="8">8º</ion-option>
+                      <ion-option value="9">9º</ion-option>
+                      <ion-option value="10">10º</ion-option>
+                  </ion-select>                    
+              </ion-item>
+              <!-- <div *ngIf="erroCiencia" class="error"> {{msgCiencia}}</div> -->
+          </ion-col>  
+          <!-- {{periodo}} -->
+  </ion-row>
+</ion-grid>
+<ion-grid class="home">
+  <div [ngSwitch]="ciencias">
+    <ion-spinner *ngIf="spinnerON" class="spinnerHome" name="bubbles"></ion-spinner>              
+    <!-- <div *ngIf="cursos_sociais"> -->
+      <ion-list *ngSwitchCase="'sociais'">                                          
+        <button *ngFor="let disciplina of cursos_sociais" ion-button full (click)="openQuizz(disciplina)">{{disciplina.nome}} <div class="qtd">{{disciplina.qtd}}</div></button>                                  
+      </ion-list>
+    <!-- </div> -->
+
+    <ion-list *ngSwitchCase="'humanas'">
+        <button *ngFor="let disciplina of cursos_humanas" ion-button full (click)="openQuizz(disciplina)">{{disciplina.nome}} <div class="qtd">{{disciplina.qtd}}</div></button>                                  
+    </ion-list>
+
+    <ion-list *ngSwitchCase="'exatas'">
+        <button *ngFor="let disciplina of cursos_exatas" ion-button full (click)="openQuizz(disciplina)">{{disciplina.nome}} <div class="qtd">{{disciplina.qtd}}</div></button>                                  
+    </ion-list>
+
+    <ion-list *ngSwitchCase="'biologicas'">
+        <button *ngFor="let disciplina of cursos_biologicas" ion-button full (click)="openQuizz(disciplina)">{{disciplina.nome}} <div class="qtd">{{disciplina.qtd}}</div></button>                                  
+    </ion-list>
+  </div>                 
+</ion-grid>
+
+</ion-content>

@@ -1,0 +1,46 @@
+<ion-header>
+  <ion-navbar color="navbarColor">
+    <ion-title>Faça Login</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content padding> 
+  <div class="div-login">
+    <ion-avatar class="avatar">
+      <img [src]="displayImage">      
+    </ion-avatar> 
+
+    <ion-list class="form-login">
+      <ion-item>
+        <ion-label stacked>E-mail</ion-label>
+        <ion-input [(ngModel)]="email" type="email" value="{{emailLS}}"></ion-input>
+      </ion-item>
+    
+      <ion-item>
+        <ion-label stacked>Senha</ion-label>
+        <ion-input [(ngModel)]="password"  type="password" value="{{senhaLS}}"></ion-input>
+      </ion-item>
+      
+    </ion-list>
+ 
+    <div no-lines class="item-lembrar-senha">                
+        <ion-checkbox [(ngModel)]="lembrar" color="amarelo"></ion-checkbox> <span>Lembrar Senha?</span>       
+        <a class="link-lembrar-senha" target="_blank" href="http://quizacademico.com.br/RecuperarPwd">Esqueci a senha</a>
+    </div>
+    <p class="erroMsg" *ngIf="temErro">{{erro}}</p>
+    <!-- <ion-item no-lines text-wrap class="item-nao-socio"> 
+       <p>Ainda não é sócio? <b><u><a href="http://www.aepto.org.br/site/#associe" target="_blank">Clique aqui</a></u></b> e associesse!</p>
+    </ion-item> -->
+    <div class="div-buttoes">
+      <div>
+        <button class="button-entrar" ion-button full (click)="login()"><span>Entrar</span></button>      
+      </div> 
+      <div>
+        <button class="button-entrar" ion-button full (click)="cadastrarProf()"><span>Cadastrar</span></button>      
+      </div>
+      <div>
+        <button class="button-entrar" ion-button full (click)="entrarSala()"><span>Entrar em Sala</span></button>      
+      </div>
+    </div> 
+</div> 
+
+</ion-content>

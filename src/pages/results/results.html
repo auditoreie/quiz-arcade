@@ -1,0 +1,60 @@
+<ion-header>
+
+  <ion-navbar color="navbarColor">
+    <ion-title>Seus Resultados</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+  <ion-grid *ngIf = "results">
+    <ion-row>
+      <ion-col width-50 offset-25>               
+        <p class="texto-acertou">
+            Você acertou <b>{{correctTotal}}</b> de um total de <b>{{quizTotal}}</b>
+        </p>
+        <div *ngIf="!eUmaSalaAval" class="texto-motivacional">
+            <p *ngIf="correctTotal === quizTotal">
+                Você foi muito bem! Acertou todas!
+            </p>
+            <p *ngIf="correctTotal/quizTotal >= .70">
+                Você quase conseguiu uma pontuação perfeita, continue estudando!
+            </p>
+            <p *ngIf="correctTotal/quizTotal < .70">
+               Você pode fazer melhor! Vamos tentar novamente?
+            </p>
+        </div>
+        <ion-list class="lista-questoes">
+          <ion-item text-wrap *ngFor="let result of results; let i = index">
+              <span class="letras-alternativas">{{i+1}}</span>
+              <div class="div-alternativas">
+                <b>Pergunta: </b><div [innerHTML]="result!.question"></div><br/>
+                <b>Resposta correta: </b>{{result!.correctAnswer}}<br/>            
+                <b>Sua resposta: </b>{{result!.yourAnswer}}
+              </div>
+          </ion-item>  
+        </ion-list>
+        <div *ngIf="eUmaSalaAval" class="notaFinal">
+          <div class="letras-alternativas-nota-final"></div>
+          <div>
+            <b><span>{{nomeAlunoST}}</span></b><br/>
+            Sua nota foi: {{notalFinalAluno}}
+          </div>          
+        </div>
+        <div *ngIf="eUmaSalaAval; else nEumaSalaAval"> 
+          <div class="center button-final">
+            <button ion-button (click)="finalizar()">Finalizar</button>
+          </div>
+        </div>
+        <ng-template #nEumaSalaAval>
+          <div class="center button-final">
+            <button ion-button (click)="backHome()">Ir para Inicio</button>
+          </div>
+          <div class="center button-final">
+            <button ion-button (click)="restart()">Tentar novamente!</button>
+          </div>
+        </ng-template>          
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

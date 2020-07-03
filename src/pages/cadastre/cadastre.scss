@@ -1,0 +1,125 @@
+page-cadastre {
+    ion-content{
+        // background-color: color($colors, azul) !important;
+        background-image:url("/assets/imgs/bg1.jpg");
+        background-size: cover;
+    }
+    .text-permuta{
+        text-align: left;
+        font-size: 16px;
+        // background-color: #f2f2f2;
+        color: #f2f2f2;
+        padding: 0px;
+        width: 100%;
+    }
+    ion-input{
+        background-color: #f2f2f2;
+    }
+    .text-area-denun{
+        border: 1px solid #dadada !important;
+        height: 250px !important;
+        width: 100%;
+        margin: 0px !important;
+        padding: 10px;
+    }
+    .text-area-pergunta{
+        border: 1px solid #dadada !important;
+        height: 100px !important;
+        width: 100%;
+        margin: 0px !important;
+        padding: 10px;
+    }
+    .error{
+        font-size: 14px;
+        color: red;
+        padding-top: 10px;
+    }
+    .div-icons-camera{
+        border: 0px solid red;
+        text-align: center;
+    }
+    .ico-camera{
+        color: #3a479a;
+        text-align: center;
+        font-size: 60px;
+        margin-right: 10%;
+        span{
+            float: none;
+            font-size: 12px;
+        }
+    }
+    .ico-gallery{
+        color: #3a479a;
+        text-align: center;
+        font-size: 60px;
+        span{
+            font-size: 12px;
+        }
+    }
+    .div-input{
+        width: 100%;
+        // border: 1px solid red;
+        ion-item{
+            // border: 1px solid red;
+        }
+        ion-input{
+            // border: 1px solid red;
+            // margin-right: -15px !important;
+        }
+    }
+    // ion-item{
+    //     border: 2px solid green !important;
+    // }
+    .align-direita{
+        max-width: 100% !important;
+        width: 100% !important;
+        ion-select{
+            width: 100% !important;
+        }
+        // float: none;
+    }
+    .texto-minisculo{
+        font-size: 11px;
+        font-style: italic;
+        text-align: right;
+        float: right;
+    }
+    .msg-cuidado{
+        margin: 20px 0 20px 0;
+        background-color: #f2f2f2;
+        padding: 15px;
+        text-align: justify;
+
+        div{
+            align-content: center;
+            width: 100%;
+            text-align: center;
+            font-weight: bold;
+        }
+        h4{
+            text-align: center;
+        }
+
+    }
+    .btnEnviar{
+        background-color: #B80C00 !important;
+    }
+    .item-toggles{
+        div{
+            color: #f2f2f2;
+            font-size: 18px;
+            text-align: center;
+            border: 0px solid red;
+            float: left;
+            width: 50%;
+        }
+        ion-toggle{
+            margin: auto;
+            // width: 50%;
+            border: 0px solid green;
+            padding: 10px;
+            zoom: 1.5;
+        }
+    } 
+
+}

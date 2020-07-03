@@ -1,3 +1,99 @@
-page-home {
-
+page-home{
+    ion-toolbar{
+        border: 0px solid red;
+        border-radius: 7px;
+        // background-color: #B80C00 !important;
+    }
+    .segment-home{
+        border: 0px solid red;
+        // background-color: #B80C00;
+    }
+    .header ion-navbar{
+        background-color: red !important;
+        // border: 1px solid red;
+    }
+    ion-content{
+        // background-color: color($colors, azul) !important;
+        background-image:url("/assets/imgs/bg1.jpg");
+        background-size: cover;
+    }
+    .segment-button {
+        //  border-radius: 50%;
+        color: #dadada !important;
+        text-transform: none !important;
+        font-size: 1.6rem !important;
+        font-weight: 600 !important;
+        opacity: 1 !important;
+        border: 0 !important;
+        color: #d8d8d8 !important;
+        // font-family: $font-header;
+    
+        &.activated, &.segment-activated {
+          border-top: 0;
+          border-right: 0;
+          border-bottom: 2px solid red !important;
+          border-left: 0;
+          color: #B80C00 !important;
+          background: transparent !important;
+        }
+      }
+    .home{
+        // div div{
+        //     // margin-top: 10px;
+        //     // background-color: #f2f2f2;
+        //     // padding: 20px;
+        //     // margin-bottom: 0px !important;
+        //     // // color: #222222;
+        //     // border-radius: 5px;
+        // }
+        // text-align: center;
+        // justify-content: center;
+        // align-items:center;
+        // background: #fff;
+        // color: color($colors, primary);
+        // border: 1px solid red !important;
+    }
+    .qtd{
+        border-radius: 50%;
+        background-color: #f1f1f1;
+        padding: 12px;
+        position: absolute;
+        right: 10px;
+        font-size: 18px;
+        color: #222222;
+    }
+    .img-logo{
+        border: 0px solid red;
+        // border: 1px solid red !important;
+        // width="155" height="155";
+        height: 153px;
+        width: 159px;
+    }
+    img{
+        //  background: #fff;
+        // background-color: none;
+    }
+    ion-list{
+        margin-top: 20px !important;
+        width: 100% !important;
+        button{            
+            // border: 1px solid red !important;
+            margin-bottom: 10px !important;
+            border: 0px solid red !important;
+            padding: 25px !important;
+            // height: 100px !important;
+            border-radius: 20px 5px !important;  
+            text-align: left !important;
+            left: 0px !important;
+            font-size: 18px !important;
+            background-color: #B80C00 !important;
+        }
+    }
+    .spinnerHome{
+        position: relative;
+        display: block;
+        margin: auto;        
+        border: 0px solid red;
+        margin-top: 10%;
+    }
 }

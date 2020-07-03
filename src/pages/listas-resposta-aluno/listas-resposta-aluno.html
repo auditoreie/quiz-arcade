@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-navbar color="navbarColor">
+    <ion-title>Resposta do Aluno {{respostas?.nome_aluno}}</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="closeModal()">
+          <ion-icon item-right name="ios-close-outline"></ion-icon>
+      </button>
+  </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <div class="nota">Nota: {{respostas?.nota}}</div>
+  <ion-list>          
+    <ion-item text-wrap *ngFor="let resposta of respostasAluno; let i = index">
+      <span class="letras-alternativas">{{i+1}}</span>
+      <div class="div-alternativas">
+        <b>Pergunta: </b><div [innerHTML]="resposta!.question"></div><br/>
+        <b>Resposta correta: </b>{{resposta!.correctAnswer}}<br/>            
+        <b>Sua resposta: </b>{{resposta!.yourAnswer}}
+      </div>
+      <div class="iconRespostaCerta" *ngIf="resposta!.correctAnswer == resposta!.yourAnswer; else incorrectRespost">
+          <ion-icon name="ios-checkbox-outline"></ion-icon>
+      </div>
+      <ng-template #incorrectRespost>
+        <div class="iconRespostaErrada">
+          <ion-icon name="ios-checkbox-outline"></ion-icon>
+        </div>
+      </ng-template>
+    </ion-item>         
+  </ion-list>  
+</ion-content>

@@ -1,14 +1,47 @@
 <ion-header>
-  <ion-navbar>
-    <ion-title>
-      Ionic Blank
-    </ion-title>
+  <ion-navbar color="navbarColor">
+    <ion-title>Nível Superior</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+  <ion-toolbar no-border-top>
+      <ion-segment class="segment-home" [(ngModel)]="ciencias" (ionChange)="onSegmentChanged($event)">
+        <ion-segment-button value="sociais">
+          Sociais
+        </ion-segment-button>
+        <ion-segment-button value="humanas">
+          Humanas
+        </ion-segment-button>
+        <ion-segment-button value="exatas">
+          Exatas
+        </ion-segment-button>
+        <ion-segment-button value="biologicas">
+          Biologicas
+        </ion-segment-button>
+      </ion-segment>
+    </ion-toolbar>  
+
+    <ion-grid class="home">
+      <div [ngSwitch]="ciencias">
+        <ion-spinner *ngIf="spinnerON" class="spinnerHome" name="bubbles"></ion-spinner>              
+        <!-- <div *ngIf="cursos_sociais"> -->
+          <ion-list *ngSwitchCase="'sociais'">                                          
+            <button *ngFor="let cursos of cursos_sociais" ion-button full (click)="openDto(cursos)">{{cursos.nome}} <div class="qtd">{{cursos.qtd}}</div></button>                                  
+          </ion-list>
+        <!-- </div> -->
+    
+        <ion-list *ngSwitchCase="'humanas'">
+            <button *ngFor="let cursos of cursos_humanas" ion-button full (click)="openDto(cursos)">{{cursos.nome}} <div class="qtd">{{cursos.qtd}}</div></button>                                  
+        </ion-list>
+    
+        <ion-list *ngSwitchCase="'exatas'">
+            <button *ngFor="let cursos of cursos_exatas" ion-button full (click)="openDto(cursos)">{{cursos.nome}} <div class="qtd">{{cursos.qtd}}</div></button>                                  
+        </ion-list>
+
+        <ion-list *ngSwitchCase="'biologicas'">
+            <button *ngFor="let cursos of cursos_biologicas" ion-button full (click)="openDto(cursos)">{{cursos.nome}} <div class="qtd">{{cursos.qtd}}</div></button>                                  
+        </ion-list>
+      </div>                 
+    </ion-grid>
 </ion-content>

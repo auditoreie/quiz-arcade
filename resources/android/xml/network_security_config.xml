@@ -1,0 +1,15 @@
+<network-security-config>
+    <base-config cleartextTrafficPermitted="true">
+        <trust-anchors>
+            <certificates src="system" />
+        </trust-anchors>
+    </base-config>
+    <domain-config cleartextTrafficPermitted="true">
+        <domain includeSubdomains="true">localhost</domain>
+        <!-- <domain includeSubdomains="true">rodrex.com.br</domain> -->
+        <domain includeSubdomains="true">http://quizacademico.com.br</domain>   
+        <domain includeSubdomains="true">quizacademico.com.br</domain>   
+        <domain includeSubdomains="true">http://quizacademico.com.br/admin/api/</domain>
+        <domain includeSubdomains="true">quizacademico.com.br/admin/api/</domain>
+    </domain-config>
+</network-security-config>

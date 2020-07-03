@@ -1,0 +1,61 @@
+<ion-header>
+  <ion-navbar color="navbarColor">
+    <ion-title>Editar</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="closeModal()">
+          <ion-icon item-right name="ios-close-outline"></ion-icon>
+      </button>
+  </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <form [formGroup]="formEdit" (ngSubmit)="submitEdit()">          
+    <div class="div-input">        
+      <ion-label class="text-permuta" position="floating">Foto:</ion-label>
+      <div class="div-icons-camera">
+        <div class="div-cam">
+          <div><ion-icon class="ico-camera" (click)="openCamera()" name="camera"></ion-icon></div>
+          <div>Camera</div>
+        </div>
+        <div class="div-cam">
+          <div><ion-icon class="ico-gallery" (click)="openGallery()" name="images"></ion-icon></div>
+          <div>Galeria</div>
+        </div>                                                    
+      </div>
+      <!-- <img *ngIf="base64Image != null" [src]="base64Image" />             -->
+      <!-- <ion-input formControlName="foto" type="text" [(ngModel)]="foto"></ion-input> -->
+      <!-- <div *ngIf="erroFoto" class="error"> {{msgFoto}}</div> -->
+      <img class="imageFoto" *ngIf="base64Image != null" [src]="base64Image" />  
+    </div> 
+
+    <div class="div-input">
+      <ion-label class="text-permuta" position="floating">Nome</ion-label>
+      <ion-input [(ngModel)]="perfil.nome" formControlName="nome"></ion-input>
+      <div *ngIf="erroNome" class="error"> {{msgNome}}</div>
+    </div>
+    <div class="div-input">
+      <ion-label class="text-permuta" position="floating">Sobrenome</ion-label>
+      <ion-input [(ngModel)]="perfil.sobrenome" formControlName="sobrenome"></ion-input>
+      <!-- <div *ngIf="erroSobrenome" class="error"> {{msgSobrenome}}</div> -->
+    </div>
+    <div class="div-input">
+      <ion-label class="text-permuta" position="floating">Cargo / Função</ion-label>
+      <ion-input [(ngModel)]="perfil.cargo_funcao" formControlName="cargoFuncao"></ion-input>
+      <!-- <div *ngIf="erroCargoFuncao" class="error"> {{msgCargoFuncao}}</div> -->
+    </div>
+    <div class="div-input">
+      <ion-label class="text-permuta" position="floating">E-mail</ion-label>
+      <ion-input [(ngModel)]="perfil.email" formControlName="email"></ion-input>
+      <!-- <div *ngIf="erroEmail" class="error"> {{msgEmail}}</div> -->
+    </div>
+
+    <div class="div-input">
+      <ion-label class="text-permuta" position="floating">Senha</ion-label>
+      <ion-input [(ngModel)]="perfil.senha" formControlName="senha"></ion-input>
+      <!-- <div *ngIf="erroSenha" class="error"> {{msgSenha}}</div> -->
+    </div>
+   
+    <button class="btnEnviar" color="bgTab2" ion-button type="submit" block full>Editar</button>
+</form>
+</ion-content>

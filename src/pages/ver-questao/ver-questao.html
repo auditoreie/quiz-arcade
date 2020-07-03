@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-navbar color="navbarColor">
+    <ion-title>Questão {{quizz.id}}</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="closeModal()">
+          <ion-icon item-right name="ios-close-outline"></ion-icon>
+      </button>
+  </ion-buttons>
+  </ion-navbar>
+</ion-header>
+<ion-content class="home">
+<!-- {{quizz.id}}
+{{quizz.question}}
+{{quizz.correct_answer}}
+{{quizz.incorrect_answers1}}
+{{quizz.incorrect_answers2}}
+{{quizz.incorrect_answers3}}
+{{quizz.incorrect_answers4}}
+{{quizz.inserido_data}}
+{{quizz.id_sala}} -->
+<div class="div-topo">
+  <!-- <ion-col class="ion-coluna" width-50 offset-25> -->
+    <div *ngIf="disciplina" class="category">
+      <b>Categoria: </b><i>{{disciplina.nome}}</i> <b>Dificuldade: </b><i>{{dificuldade}}</i>
+    </div>            
+    <div class="question" [innerHTML]="quizz.question"></div>        
+    <span class="codigo"><b>Código:</b> {{quizz.id}}</span>
+    <!-- <span class="postado"><b>Postado por:</b> {{quizz.inserido_por}}</span>                                 -->
+  <!-- </ion-col> -->
+</div>
+<!-- <!-- <div class="navegacao">{{quizIndex+1}}/{{totalQuizNum}}</div> -->
+<div class="div-alternativas">
+    <ion-list>
+        <ion-item text-wrap><span>Correta:</span><div [innerHTML]="quizz?.correct_answer"></div></ion-item>  
+        <ion-item text-wrap><span>Alternativa:</span><div [innerHTML]="quizz?.incorrect_answers1"></div></ion-item>
+        <div *ngIf="quizz.type == 1">
+          <ion-item text-wrap><span>Alternativa:</span><div [innerHTML]="quizz?.incorrect_answers2"></div></ion-item>  
+          <ion-item text-wrap><span>Alternativa:</span><div [innerHTML]="quizz?.incorrect_answers3"></div></ion-item>
+          <ion-item text-wrap><span>Alternativa:</span><div [innerHTML]="quizz?.incorrect_answers4"></div></ion-item>                
+        </div>
+      </ion-list>
+</div>
+</ion-content>

@@ -1,0 +1,19 @@
+<ion-header>
+  <ion-navbar color="navbarColor">
+    <ion-title>
+        <div *ngIf="tipoParam == 'texto'; else video">Texto Explicativo</div>
+        <ng-template #video>Video Explicativo</ng-template>
+    </ion-title>
+    <ion-buttons end>
+        <button ion-button icon-only (click)="closeModal()">
+            <ion-icon item-right name="ios-close-outline"></ion-icon>
+        </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <div *ngIf="tipoParam == 'texto'">
+    <div [innerHTML]="htmlExplica"></div>
+  </div>
+</ion-content>

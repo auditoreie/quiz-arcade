@@ -1,0 +1,195 @@
+<ion-header>
+    <ion-navbar color="navbarColor">
+      <ion-title>Cadastre sua Questão</ion-title>
+      
+      <ion-buttons *ngIf="origem == 'questoes'" end>
+        <button ion-button icon-only (click)="closeModal()">
+            <ion-icon item-right name="ios-close-outline"></ion-icon>
+        </button>
+     </ion-buttons>
+
+    </ion-navbar>
+  </ion-header>
+  
+  <ion-content padding>
+    <form [formGroup]="formCad" (ngSubmit)="submitCad()">      
+      <!-- <div *ngIf="origem == 'questoes'"> -->
+        <!-- <ion-list> -->
+          <!-- <ion-item class="item-toggles"> -->
+            <div class="item-toggles">
+              <div>
+                <ion-label>Multipla Escolha</ion-label>
+                <ion-toggle (ngModelChange)="stateChangeME($event)" formControlName="multiplaescolha" [(ngModel)]="multiplaescolhaTipo"></ion-toggle>
+              </div>
+              <div>
+                <ion-label>Certo/Errado</ion-label>
+                <ion-toggle (ngModelChange)="stateChangeCE($event)" formControlName="certoerrado" [(ngModel)]="certoerradoTipo"></ion-toggle>
+              </div>
+          </div>
+          <!-- </ion-item> -->
+        <!-- </ion-list> -->
+      <!-- </div> -->
+      <div class="div-input">        
+        <ion-label class="text-permuta" position="floating">Ciência</ion-label>        
+        <ion-item>            
+            <ion-select 
+                okText="Ok" 
+                cancelText="Cancela"  
+                name="ciencia" 
+                class="align-direita" 
+                formControlName="ciencia" 
+                [(ngModel)]="ciencia"
+                interface="action-sheet">
+                <ion-option *ngFor="let ciencia of ciencias" value="{{ciencia.id}}">{{ciencia.nome}} </ion-option>
+            </ion-select>                    
+        </ion-item>
+        <div *ngIf="erroCiencia" class="error"> {{msgCiencia}}</div>
+      </div>
+      <div class="div-input">
+        <ion-label class="text-permuta" position="floating">Curso</ion-label>
+        <ion-item>            
+            <ion-select 
+                okText="Ok" 
+                cancelText="Cancela"  
+                name="curso" 
+                class="align-direita" 
+                formControlName="curso" 
+                [(ngModel)]="curso"
+                interface="action-sheet" 
+                >
+                <ion-option *ngFor="let curso of cursos" value="{{curso.id}}">{{curso.nome}} </ion-option>
+            </ion-select>            
+        </ion-item>
+        <div *ngIf="erroCurso" class="error"> {{msgCurso}}</div>
+      </div>
+      <div class="div-input">
+          <ion-label class="text-permuta" position="floating">Disciplina</ion-label>
+          <ion-item>            
+              <ion-select 
+                  okText="Ok" 
+                  cancelText="Cancela"  
+                  name="disciplina" 
+                  class="align-direita" 
+                  formControlName="disciplina" 
+                  [(ngModel)]="disciplina"
+                  interface="action-sheet" 
+                  >
+                  <ion-option *ngFor="let disciplina of disciplinas" value="{{disciplina.id}}">{{disciplina.nome}} </ion-option>
+              </ion-select>              
+          </ion-item>
+          <div *ngIf="erroDisciplina" class="error"> {{msgDisciplina}}</div>
+        </div>
+        <div class="div-input">
+          <ion-label class="text-permuta" position="floating">Dificuldade</ion-label>
+          <ion-item>            
+              <ion-select 
+                  okText="Ok" 
+                  cancelText="Cancela"  
+                  name="dificuldade" 
+                  class="align-direita" 
+                  formControlName="dificuldade" 
+                  [(ngModel)]="dificuldade"
+                  interface="action-sheet" 
+                  >
+                  <ion-option *ngFor="let dificuldade of dificuldades" value="{{dificuldade.id}}">{{dificuldade.nome}} </ion-option>
+              </ion-select>              
+          </ion-item>
+          <div *ngIf="erroDif" class="error"> {{msgDif}}</div>
+        </div>
+        <div class="div-input">
+          <ion-label class="text-permuta" position="floating">Periodo</ion-label>
+          <ion-item>            
+              <ion-select 
+                  okText="Ok" 
+                  cancelText="Cancela"  
+                  name="periodo" 
+                  class="align-direita" 
+                  formControlName="periodo" 
+                  [(ngModel)]="periodo"
+                  interface="action-sheet" 
+                  >
+                  <ion-option *ngFor="let periodo of periodos" value="{{periodo.id}}">{{periodo.nome}} </ion-option>
+              </ion-select>              
+          </ion-item>
+          <div *ngIf="erroDif" class="error"> {{msgDif}}</div>
+        </div>
+        <div class="div-input">
+          <ion-label class="text-permuta" position="floating">Pergunta</ion-label>
+            <!-- <ion-input formControlName="pergunta" type="text"  [(ngModel)]="pergunta"></ion-input> -->
+            <textarea formControlName="pergunta" class="text-area-pergunta"
+              ng-model="pergunta"
+              ng-trim="true"
+                    >
+            </textarea>
+          <div *ngIf="erroPerg" class="error"> {{msgPerg}}</div>
+        </div>
+        <div class="div-input">
+          <ion-label class="text-permuta" position="floating">Resposta Correta</ion-label>
+          <ion-input formControlName="respCorreta" type="text"  [(ngModel)]="respCorreta"></ion-input>
+          <div *ngIf="erroRespCorreta" class="error"> {{msgRespCorreta}}</div>
+        </div>
+        <div class="div-input">
+          <ion-label class="text-permuta" position="floating">Resposta Errada</ion-label>
+          <ion-input formControlName="respErr1" type="text"  [(ngModel)]="respErr1"></ion-input>
+          <div *ngIf="erroRespErr1" class="error"> {{msgRespErr1}}</div>
+        </div>
+
+        <!------>                   
+        <div *ngIf="multiplaescolhaTipo">
+              <div class="div-input">
+                <ion-label class="text-permuta" position="floating">Resposta Errada </ion-label>
+                <ion-input formControlName="respErr2" type="text"  [(ngModel)]="respErr2"></ion-input>
+                <div *ngIf="erroRespErr2" class="error"> {{msgRespErr2}}</div>
+              </div>
+              <div class="div-input">
+                <ion-label class="text-permuta" position="floating">Resposta Errada </ion-label>
+                <ion-input formControlName="respErr3" type="text"  [(ngModel)]="respErr3"></ion-input>
+                <div *ngIf="erroRespErr3" class="error"> {{msgRespErr3}}</div>
+              </div>
+              <div class="div-input">
+                <ion-label class="text-permuta" position="floating">Resposta Errada </ion-label>
+                <ion-input formControlName="respErr4" type="text" [(ngModel)]="respErr4"></ion-input>
+                <div *ngIf="erroRespErr4" class="error"> {{msgRespErr4}}</div>
+              </div>
+        </div>      
+        <!------>
+        
+        <div class="div-input">
+          <ion-label class="text-permuta" position="floating">Link Video Explicativo Youtube <span class="texto-minisculo">(Não Obrigatório)</span></ion-label>
+          <ion-input formControlName="videoExplic" type="text" [(ngModel)]="videoExplic"></ion-input>
+          <!-- <div *ngIf="erroVideoExplic" class="error"> {{msgVideoExplic}}</div> -->
+        </div>      
+        <div class="container" no-padding>
+            <ion-label class="text-permuta" position="floating">Texto Explicativo</ion-label>
+            <!-- <ion-item> -->
+                <textarea formControlName="textExplica" class="text-area-denun"
+                    ng-model="textExplica"
+                    ng-trim="true"
+                    >
+              </textarea>
+            <!-- </ion-item> -->
+            <div *ngIf="erroTextExplica" class="error"> {{msgTextExplica}}</div>       
+        </div>
+        <div class="div-input" no-padding *ngIf="origem != 'questoes'">
+            <ion-label class="text-permuta" position="floating">Inserido por:</ion-label>
+            <ion-input formControlName="inserido" type="text" [(ngModel)]="inserido"></ion-input>
+            <div *ngIf="erroInserido" class="error"> {{msgInserido}}</div>       
+        </div>
+      <div *ngIf="origem != 'questoes'" class="msg-cuidado">
+          <div>ATENÇÃO</div>
+          <p>
+          Cuidado com o conteúdo preenchido, gravamos informações sobre seus dados na questão enviada, 
+          não discrimine, não desrespeite ninguém e evite questões polêmicas!
+          </p>
+          <p>
+          Sua contribuição e de suma importancia para aumentar a quantidade de questões!
+          </p>
+          <p>
+          Preencha com responsabilidade, lembre-se que ensinando você aprende em dobro!
+          </p>
+          <h4>Obrigado pela sua contribuição!!!</h4>        
+      </div>         
+      <button class="btnEnviar" color="bgTab2" ion-button type="submit" block full>Enviar</button>
+  </form>
+  </ion-content>
+  

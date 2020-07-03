@@ -1,0 +1,84 @@
+page-results{
+    ion-content{
+        background-color: color($colors, azul) !important;
+        background-image:url("/assets/imgs/bg1.jpg");
+        background-size: cover;
+    }
+    .center {
+        text-align: center;
+    }
+    .texto-acertou{
+        font-size: 20px;
+        text-align: center;
+        color: #fafafa;
+    }
+    .texto-motivacional{
+        font-size: 16px;
+        text-align: center;
+        color: #fafafa;
+    }
+    .lista-questoes ion-item{
+        border-radius: 7px !important;
+        margin-bottom: 5px;
+    }
+    .button-final{
+        button{
+            // color: red;
+            background-color: color($colors, vermelho) !important;
+        }
+    }
+    .letras-alternativas{
+        position: absolute;
+        border: 0px solid red;
+        // padding: 10px;
+        // margin: 15px;
+        // width: 20px;
+        // height: 20px;
+        padding: 10px;
+        border-radius: 2px !important;
+        // margin-left: -50px;
+        // margin-right: 15px;        
+        background-color: #d2d2d2;
+        font-weight: bold;
+        left: 0;
+        height: 100%;
+        top: 0px;
+        z-index: 99999999999;
+        overflow: visible;
+    }    
+    .div-alternativas{
+        padding-left: 20px;
+    }
+    .notaFinal{
+        background-color: #fafafa;
+        border-radius: 5px !important;
+        min-height: 50px;
+        font-size: 20px;        
+        margin-bottom: 15px;
+        .letras-alternativas-nota-final{
+            float: left;
+            position: relative;
+            // padding: 0px;
+            border-radius: 2px !important;
+            // margin-left: -50px;
+            // margin-right: 15px;        
+            background-color: #d2d2d2;
+            // font-weight: bold;
+            // left: 0px;
+            // top: 0px;
+            // height: 100%;        
+            
+            // z-index: 99999999999;
+            overflow: hidden;
+            height: 69px;
+            width: 5%;
+            border: 0px solid red;
+            margin-right: 10px;
+            // margin-left: 10px;
+        }
+        div{
+            width: 95%;
+            padding: 10px;
+        }
+    }
+}

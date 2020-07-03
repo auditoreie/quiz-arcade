@@ -1,0 +1,65 @@
+page-listas-resposta-aluno {
+    ion-content{
+        background-color: color($colors, azul) !important;
+        background-image:url("/assets/imgs/bg1.jpg");
+        background-size: cover;
+    }
+    .lista-questoes ion-item{
+        border-radius: 7px !important;
+        margin-bottom: 5px;
+    }
+    .letras-alternativas{
+        position: absolute;
+        border: 0px solid red;
+        // padding: 10px;
+        // margin: 15px;
+        // width: 20px;
+        // height: 20px;
+        padding: 10px;
+        border-radius: 2px !important;
+        // margin-left: -50px;
+        // margin-right: 15px;        
+        background-color: #d2d2d2;
+        font-weight: bold;
+        left: 0;
+        height: 100%;
+        top: 0px;
+        z-index: 99999999999;
+        overflow: visible;
+    }    
+    .div-alternativas{
+        padding-left: 20px;
+    }
+    .iconRespostaCerta{
+        text-align: right;
+        position: absolute;
+        right: 5px;
+        top: 5px;
+        ion-icon{
+            font-size: 32px;
+            color: green;
+        }
+    }
+    .iconRespostaErrada{        
+        position: absolute;
+        text-align: right;
+        right: 5px; 
+        top: 5px;
+        ion-icon{
+            font-size: 32px;
+            color: red;
+        }
+    }
+    .nota{
+        // background-color: #fafafa;
+        font-weight: bold;
+        border-radius: 7px !important;
+        margin-bottom: 5px;
+        text-align: center;
+        min-height: 30px;
+        padding: 20px;
+        font-size: 20px;
+        width: 100%;
+        color: #fafafa;
+    }
+}

@@ -1,0 +1,76 @@
+<ion-header>
+  <ion-navbar  color="navbarColor">  
+    <div>      
+      <ion-title>Minhas Salas</ion-title> 
+   </div>
+      
+    <ion-buttons end>
+        <button ion-button icon-only (click)="editUser(objPerfil)">
+            <ion-icon name="create"></ion-icon>
+        </button>
+
+        <button ion-button icon-only (click)="logout()">
+            <ion-icon name="md-close-circle"></ion-icon>
+        </button>
+    </ion-buttons>
+
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-fab right bottom>
+    <button (click)="addSalas()" ion-fab color="navbarColor"><ion-icon name="add"></ion-icon></button>    
+  </ion-fab>
+    
+    <ion-avatar class="avatar">
+      <img [src]="displayImage">      
+    </ion-avatar>  
+    <div class="infos-login"> 
+      {{objPerfil?.nome}} {{objPerfil?.sobrenome}}
+      <span>{{objPerfil?.cargo_funcao}}</span>               
+      <!-- <div class="logout" (click)="logout()">Sair</div> -->
+    </div>  
+    <div class="listasSalas">
+      <ion-spinner *ngIf="spinnerON" class="spinnerSalas" name="bubbles"></ion-spinner>
+      <!-- {{tamSala}} -->
+      <div *ngIf="tamSala > 0;else other_content">      
+        <ion-list>          
+          <ion-item-sliding *ngFor="let sala of salas"> 
+            <!-- <h2>{{sala.id}}</h2> -->
+            <ion-item>            
+              <h2>Código da Sala: <b>{{sala.id_sala}}</b></h2>
+              <h2>{{sala.nome}}</h2>
+              <h3>{{sala.disciplina}} {{sala.turma}}</h3>
+              <p>{{sala.data | date: "dd/MM/yyyy"}}</p>              
+              <div *ngIf="sala.avaliativa == 1" class="eAvaliativa">
+                <ion-icon name="md-clipboard" item-end><span>{{sala.nota}}</span></ion-icon>                
+              </div>                       
+            </ion-item>
+            <ion-item-options side="right">
+              <button (click)="delSala(sala.id)" ion-button color="danger">
+                <ion-icon name="trash"></ion-icon>
+                <span>Deletar</span>
+              </button>
+              <button (click)="questoes(sala)" ion-button color="primary">
+                <ion-icon name="ios-chatbubbles"></ion-icon>
+                 <span>Questões</span>
+              </button>
+              <button (click)="compartilhar(sala, objPerfil)" ion-button color="secondary">                
+                <ion-icon name="share"></ion-icon>
+                 <span>Compartilhar</span> 
+              </button>              
+              <div *ngIf="sala.avaliativa == 1">
+                <button (click)="respostasSala(sala)" ion-button color="rubi">
+                  <ion-icon name="md-checkbox-outline"></ion-icon>
+                  <span>Respostas</span> 
+                </button>
+              </div>
+            </ion-item-options>          
+          </ion-item-sliding>        
+        </ion-list>
+      </div>
+      <ng-template #other_content>
+        <div class="semsala">Sem salas cadastradas...</div>        
+      </ng-template>
+  </div>
+</ion-content>

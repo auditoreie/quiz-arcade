@@ -1,0 +1,54 @@
+<ion-header>
+  <ion-navbar color="navbarColor">
+    <ion-title>Cadastre uma Sala</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="closeModal()">
+          <ion-icon item-right name="ios-close-outline"></ion-icon>
+      </button>
+     </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <form [formGroup]="formCad" (ngSubmit)="submitCad()">          
+    <div class="div-input">
+      <ion-label class="text-permuta" position="floating">Avaliativa?</ion-label>        
+      <ion-item class="align-direita-item">            
+          <ion-select 
+             (ionChange)="onChange($event)"
+              okText="Ok" 
+              cancelText="Cancela"  
+              name="avaliativa"               
+              class="align-direita" 
+              formControlName="avaliativa" 
+              [(ngModel)]="avaliativa"
+              interface="action-sheet">
+              <ion-option *ngFor="let avaliativa of avaliativas" value="{{avaliativa.id}}">{{avaliativa.nome}} </ion-option>
+          </ion-select>                    
+      </ion-item>
+      <div *ngIf="erroAvaliativa" class="error"> {{msgAvaliativa}}</div>
+    </div>    
+    <div class="div-input">
+      <ion-label class="text-permuta" position="floating">Nome Sala</ion-label>
+      <ion-input formControlName="nomeSala" type="text"  [(ngModel)]="nomeSala"></ion-input>
+      <div *ngIf="erroNomeSala" class="error"> {{msgNomeSala}}</div>
+    </div>
+    <div class="div-input">
+      <ion-label class="text-permuta" position="floating">Turma</ion-label>
+      <ion-input formControlName="turma" type="text"  [(ngModel)]="turma"></ion-input>
+      <div *ngIf="erroTurma" class="error"> {{msgTurma}}</div>
+    </div>
+    <div class="div-input">
+      <ion-label class="text-permuta" position="floating">Disciplina</ion-label>
+      <ion-input formControlName="disciplina" type="text"  [(ngModel)]="disciplina"></ion-input>
+      <div *ngIf="erroDisciplina" class="error"> {{msgDisciplina}}</div>
+    </div>
+    <div class="div-input" *ngIf="eAvaliativa">
+      <ion-label class="text-permuta" position="floating">Nota? (10 a 100)</ion-label>
+      <ion-input formControlName="nota" type="number"  [(ngModel)]="nota"></ion-input>
+      <div *ngIf="erroNota" class="error"> {{msgNota}}</div>
+    </div>
+   
+    <button class="btnEnviar" color="bgTab2" ion-button type="submit" block full>Enviar</button>
+</form>
+</ion-content>
