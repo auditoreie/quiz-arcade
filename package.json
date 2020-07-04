@@ -20,6 +20,8 @@
     "@angular/http": "5.2.11",
     "@angular/platform-browser": "5.2.11",
     "@angular/platform-browser-dynamic": "5.2.11",
+    "@capacitor/android": "^2.2.1",
+    "@capacitor/core": "2.2.1",
     "@ionic-native/camera": "^4.20.0",
     "@ionic-native/camera-preview": "^4.20.0",
     "@ionic-native/core": "~4.20.0",
@@ -43,6 +45,7 @@
     "zone.js": "0.8.29"
   },
   "devDependencies": {
+    "@capacitor/cli": "2.2.1",
     "@ionic/app-scripts": "3.2.2",
     "cordova-plugin-device": "^2.0.2",
     "cordova-plugin-ionic-keyboard": "^2.2.0",
