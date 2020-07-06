@@ -30,6 +30,9 @@ export class ProfessorPage {
   salas: any;
   tamSala: any;
   url: string;
+  
+  classroms: any;
+
 
   constructor(
     private socialSharing: SocialSharing,
@@ -59,7 +62,8 @@ export class ProfessorPage {
       } catch (error) {
         console.log("Não consegui buscar foto");        
       }     
-      this.buscaSalasProfessor();  
+      // this.buscaSalasProfessor();
+      this.getCurrentClassroms();
   }
   ionViewDidLoad() {
     console.log('ionViewDidLoad ProfessorPage');   
@@ -106,6 +110,23 @@ export class ProfessorPage {
          this.closeLoading2();
       })      
   }
+
+  getCurrentClassroms() {
+    this.openLoading2();
+    console.log('Entering getClassrom')
+    this.cadastreProvider.getClassromsByProfId(this.objPerfil.id)
+      .subscribe(
+        (res: Array<any>) => { 
+          this.salas = res;
+          this.tamSala = res.length;
+          this.closeLoading2();
+        },
+        err => { console.trace(err) }
+        )
+    
+  }
+
+
   buscaSalasProfessorOld(){
     // this.getSalasProfWillEnterNovo(this.objPerfil.id); 
   }
@@ -172,13 +193,21 @@ export class ProfessorPage {
             this.cadastreProvider.delSala(id)
               .then((result: any)=>{  
                   // this.openLoading2();                    
-                  setTimeout(() => {
-                    // somecode  
-                    this.toast.create({message:"Sala deletada com sucesso!", 
-                    position:"middle", duration:4000, cssClass: 'toast-vermelho'}).present();                
-                    // this.closeLoading2();
-                    this.buscaSalasProfessor();
-                  }, 1000);   
+                  console.log({'delSala': result});
+                  this.toast.create({
+                    message: "Sala deletada! Uhul",
+                    position: "middle",
+                    duration: 4000,
+                    cssClass:"toast-vermelho"})
+                    .present();
+                  this.getCurrentClassroms();
+                  // setTimeout(() => {
+                  //   // somecode  
+                  //   this.toast.create({message:"Sala deletada com sucesso!", 
+                  //   position:"middle", duration:4000, cssClass: 'toast-vermelho'}).present();                
+                  //   // this.closeLoading2();
+                    
+                  // }, 1000);   
                   
               })
               .catch((error: any)=>{

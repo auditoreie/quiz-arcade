@@ -3,7 +3,6 @@ import { Injectable } from '@angular/core';
 
 import { AppModule } from '../../app/app.module';
 
-
 @Injectable()
 export class CadastreProvider {
   url: any;
@@ -45,6 +44,13 @@ export class CadastreProvider {
     });
     return this.salas;
   }
+
+  public getClassromsByProfId(idProf) {
+    const url = `${this.url}getsalasprof/${idProf}`;
+    return this.http.get(url);
+  }
+
+
   public getSalasProfWillEnter(idProf){
     this.salas = [];
     this.salas = new Promise((resolve, reject) =>{        
