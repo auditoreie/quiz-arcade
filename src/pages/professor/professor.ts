@@ -191,24 +191,16 @@ export class ProfessorPage {
           handler: () => {
             this.openLoading2();   
             this.cadastreProvider.delSala(id)
-              .then((result: any)=>{  
-                  // this.openLoading2();                    
+              .then((result: any)=>{                  
                   console.log({'delSala': result});
                   this.toast.create({
-                    message: "Sala deletada! Uhul",
+                    message: "Sala deletada com sucesso!",
                     position: "middle",
                     duration: 4000,
                     cssClass:"toast-vermelho"})
                     .present();
+                  this.closeLoading2();
                   this.getCurrentClassroms();
-                  // setTimeout(() => {
-                  //   // somecode  
-                  //   this.toast.create({message:"Sala deletada com sucesso!", 
-                  //   position:"middle", duration:4000, cssClass: 'toast-vermelho'}).present();                
-                  //   // this.closeLoading2();
-                    
-                  // }, 1000);   
-                  
               })
               .catch((error: any)=>{
                 console.log(error);                
